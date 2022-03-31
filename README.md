@@ -1,5 +1,5 @@
 # Summary
-A streaming service from one server to multiple clients that can connect and disconnect to it at will. Server is delivering content it receives in real time by sim (e.g. this repo's sample.txt, a live reading of the first two chapters from the Christian KJV Bible). Each active client maintains a comms channel where packets arrive at differing latencies, not necessarily in order.
+A streaming service from one server to multiple clients that can connect and disconnect to it at will. Server is delivering content it receives in real-time by arbitrary publisher (total content in this repo's sample.txt - the first two chapters from the Christian KJV Bible). Each active client maintains a comms channel where packets arrive at differing latencies, not necessarily in order.
 
 # Motivation
 Further my personal understanding in:

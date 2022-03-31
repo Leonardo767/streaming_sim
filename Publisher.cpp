@@ -1,22 +1,27 @@
 #include "Publisher.h"
-using namespace std;
 
-Publisher::Publisher(string filename)
+Publisher::Publisher(string filename) : newfile()
 {
     // open a file to perform read operation using file object
-    fstream newfile;
-    newfile.open(filename, ios::in);
-    if (newfile.is_open())
+    this->newfile.open(filename, ios::in);
+    if (!this->newfile.is_open())
     {
-        string tp{""};
-        while (getline(newfile, tp))
-        {
-            cout << tp << "\n";
-        }
-        newfile.close();
+        cout << "Warning: could not open content.\n";
     }
+}
+
+string Publisher::publish_content()
+{
+    // return char array of size 128
+    string tp{""};
+    if (getline(this->newfile, tp))
+    {
+        return tp;
+    }
+    return NULL;
 }
 
 Publisher::~Publisher()
 {
+    this->newfile.close();
 }

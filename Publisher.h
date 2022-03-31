@@ -13,8 +13,10 @@ class Publisher
 public:
     Publisher(string filename);
     ~Publisher();
+    string publish_content();
 
 private:
+    fstream newfile;
 };
 
 #endif
