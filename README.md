@@ -1,16 +1,15 @@
 # Summary
-
+A streaming service from one server to multiple clients that can connect and disconnect to it at will. Server is delivering content it receives in real time by sim (e.g. this repo's sample.txt, a live reading of the first two chapters from the Christian KJV Bible). Each active client maintains a comms channel where packets arrive at differing latencies, not necessarily in order.
 
 # Motivation
 Further my personal understanding in:
 - networking 
 - multithreading
-- checksum authentication
 
 Build a basic platform where I can test out different networking concepts. While limited, this platform is unique in that I understand every component from the get-go.
 
 # Problem Definition
-Build a streaming service from one server. Multiple clients can connect and disconnect to it at will.
+Build a streaming service from one server. Multiple clients can connect and disconnect to it at will. Server is delivering content it receives in real time by sim (for example, the Olympic Games).
 
 Design clients and server that can account for:
 - corrupted packets
