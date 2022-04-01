@@ -4,7 +4,7 @@
 
 # Compiler settings - Can be customized.
 CC = g++
-CXXFLAGS = -std=c++2a -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors
+CXXFLAGS = -pthread -std=c++2a -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors
 LDFLAGS = 
 
 # Makefile settings - Can be customized.

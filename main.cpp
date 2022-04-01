@@ -7,15 +7,38 @@
 #include <iostream>
 #include <cstdlib>
 #include <string.h>
+#include <pthread.h>
 using namespace std;
+
+static volatile bool keep_running = true;
+
+static void *userInput_thread(void *)
+{
+    while (keep_running)
+    {
+        if (cin.get() == 'q')
+        {
+            // keyboard interrupt
+            keep_running = false;
+        }
+    }
+    return NULL;
+}
 
 int main(int argc, char *argv[])
 {
+    // keyboard interrupt listener thread
+    pthread_t tId;
+    (void)pthread_create(&tId, 0, userInput_thread, 0);
+    cout << "Press q + Enter to end simulation..." << endl;
+
+    // init global objects
     Publisher pub_source("sample.txt");
-    string feed;
-    for (int i = 0; i < 10; i++)
+    // int frame{0};
+
+    while (keep_running)
     {
-        feed = pub_source.publish_content();
+        string feed = pub_source.publish_content();
         cout << feed << endl;
 
         // slowing down sim steps if user provides timeframe
@@ -26,5 +49,9 @@ int main(int argc, char *argv[])
             sleep(sim_step_time);
         }
     }
+
+    (void)pthread_join(tId, NULL);
+    // post-sim processing
+
     return 0;
 }

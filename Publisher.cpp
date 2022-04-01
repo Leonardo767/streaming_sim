@@ -18,7 +18,7 @@ string Publisher::publish_content()
     {
         return tp;
     }
-    return NULL;
+    return "";
 }
 
 Publisher::~Publisher()
